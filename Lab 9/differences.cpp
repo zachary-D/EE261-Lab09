@@ -6,7 +6,7 @@ using namespace std;
 
 void  TestLocals()
 {
-	int count = 1;
+	static int count = 1;
 	cout << count++ << endl;
 }
 
