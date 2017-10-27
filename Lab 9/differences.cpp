@@ -4,20 +4,20 @@
 #include <iostream>
 using namespace std;
 
-void  TestLocals();
-
-int main ()
-{
-  TestLocals ();
-  TestLocals ();
-  TestLocals ();
-  return 0;
-}
-
-// ***************************************
-
 void  TestLocals()
 {
-  /* TO BE FILLED IN */
+	int count = 1;
+	cout << count++ << endl;
+}
+
+
+int main()
+{
+	TestLocals();
+	TestLocals();
+	TestLocals();
+
+	cin.get();		//Hold the window
+	return 0;
 }
 
