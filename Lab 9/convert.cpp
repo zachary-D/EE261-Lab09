@@ -16,7 +16,7 @@ int ConvertedTemp(int tempIn, char letter)
 // to Fahrenheit; otherwise tempIn is converted from
 // Fahrenheit to Celsius.
 
-int main()
+void menu()
 {
 	char letter;		// Place to store input letter
 	int tempIn;		// Temperature to be converted
@@ -45,5 +45,10 @@ int main()
 
 		cin >> letter;
 	}
+}
+
+int main()
+{
+	menu();
 	return 0;
 }
