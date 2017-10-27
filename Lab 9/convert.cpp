@@ -16,20 +16,39 @@ int ConvertedTemp(int tempIn, char letter)
 // to Fahrenheit; otherwise tempIn is converted from
 // Fahrenheit to Celsius.
 
+
+bool checkError(char input)		//returns true if 'input' is invalid (not F, C, or Q)
+{
+	return !(input == 'F' || input == 'C' || input == 'Q');
+}
+
+
 void menu()
 {
-	char letter;		// Place to store input letter
+	char letter = 'e';	// Place to store input letter, initialized to 'e' (so that the main loop is entered)
 	int tempIn;		// Temperature to be converted
-
-	cout << "Input Menu" << endl << endl;
-	cout << "F:  Convert from Fahrenheit to Celsius" << endl;
-	cout << "C:  Convert from Celsius to Fahrenheit" << endl;
-	cout << "Q:  Quit" << endl;
-	cout << "Type a C, F,  or Q; then press return." << endl;
-
-	cin >> letter;
+	
 	while (letter != 'Q')
 	{
+		do
+		{
+			cout << "Input Menu" << endl << endl;
+			cout << "F:  Convert from Fahrenheit to Celsius" << endl;
+			cout << "C:  Convert from Celsius to Fahrenheit" << endl;
+			cout << "Q:  Quit" << endl;
+			cout << "Type a C, F,  or Q; then press return." << endl;
+
+			cin >> letter;
+
+			if (checkError(letter))
+			{
+				cout << "I'm sorry, I don't understand \"" << letter << "\", please try again." << endl;
+			}
+
+		} while (checkError(letter));
+
+		if (letter == 'Q') break;	//Exit the loop now if we're quitting
+
 		cout << " Type an integer number, and press return."
 			<< endl;
 		cin >> tempIn;
@@ -41,9 +60,6 @@ void menu()
 		cout << "Temperature to convert: " << tempIn << endl;
 		cout << "Converted temperature:  "
 			<< ConvertedTemp(tempIn, letter) << endl << endl;
-		cout << "Type a C, F,  or Q; then press return." << endl;
-
-		cin >> letter;
 	}
 }
 
